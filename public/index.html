@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>fotorama</title>
+    <meta charset="utf-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <script>
+$(function() {
+  $('.fotorama').on('fotorama:ready fotorama:showend', function(e, fotorama, extra) {
+    fotorama.activeFrame['$stageFrame'].on('click', function(e) {
+      window.open(fotorama.activeFrame['url']);
+      $(this).off('click');
+    });
+  });
+});
+    </script>
+  </head>
+  <body>
+    <div class="fotorama" data-autoplay="true" data-loop="true">
+      <img src="/images/image001.jpg" alt="001" data-url="https://www.google.co.jp/">
+      <img src="/images/image002.jpg" alt="002" data-url="http://news.yahoo.co.jp/">
+      <img src="/images/image003.jpg" alt="003" data-url="https://www.amazon.co.jp/">
+    </div>
+  </body>
+</html>
